@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+</head>
+<body>
+<h1 class="text-center">NOTES</h1>
+<div class="mx-5">
+    <a th:href="@{/add}" class="btn btn-outline-success btn-block"><i class='fas fa-plus'></i> Dodaj nową notatkę
+    </a>
+    <div th:each="note : ${notesList}">
+        <div class="card border-dark my-1">
+            <div class="card-header clearfix">
+                <a class="float-left" th:text="'Data dodania: '+${note.getTimestamp()}"></a>
+                <a class="float-right" th:text="'IP: '+${note.getRemoteAddr()}"></a>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title" th:text="${note.getTitle()}">
+                </h4>
+                <p class="card-text" th:text="${note.getContent()}"></p>
+                <div class="clearfix float-right">
+                    <a th:href="'/edit/' + ${note.getId()}" class="btn btn-info"><i class='fas fa-edit'></i> Edytuj</a>
+                    <a th:href="'/delete/' + ${note.getId()}" class="btn btn-danger"><i class='fas fa-trash-alt'></i>
+                        Usuń</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="links::links"></div>
+</body>
+</html>
