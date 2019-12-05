@@ -56,7 +56,7 @@ public class NoteController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editNotePost(@ModelAttribute("oldNote") Note editedNote, @PathVariable("id") Long id){
+    public String editNotePost(@ModelAttribute("oldNote") Note editedNote, @PathVariable("id") Long id) {
         noteService.editNote(id, editedNote);
         return "redirect:/";
     }

@@ -12,7 +12,7 @@
     <div th:each="note : ${notesList}">
         <div class="card border-dark my-1">
             <div class="card-header clearfix">
-                <a class="float-left" th:text="'Data dodania: '+${note.getTimestamp()}"></a>
+                <a class="float-left" th:text="'Data dodania: '+${note.getFormattedTimestamp()}"></a>
                 <a class="float-right" th:text="'IP: '+${note.getRemoteAddr()}"></a>
             </div>
             <div class="card-body">
@@ -30,6 +30,6 @@
 </div>
 
 
-<div th:replace="links::links"></div>
+<div th:replace="fragments::links"></div>
 </body>
 </html>

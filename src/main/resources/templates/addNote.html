@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Notes</title>
+    <div th:replace="fragments::head"></div>
 </head>
 <body>
 <h1 class="text-center">Dodaj notatkę</h1>
@@ -13,12 +12,12 @@
             <input type="text" class="form-control" id="title" th:field="*{title}" placeholder="Tytuł">
             <textarea class="form-control" th:field="*{content}" placeholder="Treść"></textarea>
         </div>
-        <button type="submit" class="btn btn-success btn-block"><i class='far fa-save'></i> Dodaj</button>
+        <button type="submit" class="btn btn-success btn-block"><i class='fas fa-save'></i> Dodaj</button>
         <a th:href="@{/}" type="submit" class="btn btn-warning btn-block"><i class='fas fa-angle-double-left'></i> Cofnij</a>
     </div>
 </form>
 
 
-<div th:replace="links::links"></div>
+<div th:replace="fragments::links"></div>
 </body>
 </html>

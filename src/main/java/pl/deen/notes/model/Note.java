@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
 
 @Data
 @AllArgsConstructor
@@ -24,10 +24,7 @@ public class Note {
     private Timestamp timestamp;
     private String remoteAddr;
 
-    public Note(String title, String content, Timestamp timestamp, String remoteAddr) {
-        this.title = title;
-        this.content = content;
-        this.timestamp = timestamp;
-        this.remoteAddr = remoteAddr;
+    public String getFormattedTimestamp() {
+        return new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(timestamp);
     }
 }
