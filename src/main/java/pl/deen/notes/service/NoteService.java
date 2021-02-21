@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 public class NoteService {
-    private NoteRepo noteRepo;
+    private final NoteRepo noteRepo;
 
     @Autowired
     public NoteService(NoteRepo noteRepo) {
@@ -46,10 +46,7 @@ public class NoteService {
     public boolean deleteNoteById(Long id) {
         noteRepo.deleteById(id);
         Optional<Note> optionalNote = findNoteById(id);
-        if (optionalNote.isPresent()) {
-            return false;
-        }
-        return true;
+        return !optionalNote.isPresent();
     }
 
     public List<Note> findAllNotes() {
